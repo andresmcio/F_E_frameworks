@@ -81,12 +81,18 @@ function App() {
         setSection(section);
   };
 
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleSearch = (value) => {
+    setSearchValue(value);
+  };
+
   return (
     <div className="App">
-      <Header onNavClick={handleNavClick}/>
+      <Header onNavClick={handleNavClick} onSearch={handleSearch}/>
       <main className="container-fluid">
         { section === 'feed' ? (
-            <Feed posts= { postList }/>
+            <Feed posts= { postList } searchValue={searchValue}/>
         ) : (
             <Profile 
         avatar={'https://cdn1.picuki.com/hosted-by-instagram/q/0exhNuNYnjBcaS3SYdxKjf8AzPRyWgxSZ60STLepjSVmIR1vLHOapZA0mpCj4yRwKwVlASuRYzxh5oMoUlhTCD17PkPaS7yKSTdQ7qyaXOqhvDdl8pNilb4yKnwZYXet8MIpVmepNWwSDv5PHL||lo79UvOa0LGFq8zCXW||dDmG4CqZL0APIz9Z8j3aqT3Vjm5IolITNev20zJRpl85PZrjQDUufkM8lmpKw5RbgBzPgL6NDtmjHlQD1||PVFwFA+QsoicufkPsS7rXzQPz0SGf||AwFhswtRO+sxtsk7wRvtTyEa9M+N8Z96PUTjtQEjktqBwzwMSCtiXvaUuvxVFo2kLc8Jufa7MQ8ILnHdarQ9n6||w||WeovHJa5pT3FYM6qHXQ3RJ7O5ApUPwt5sT6gZgRiK||gWCZ7nwgUd3V2Ifhg==.jpeg'}

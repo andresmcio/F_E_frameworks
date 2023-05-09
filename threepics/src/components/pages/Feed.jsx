@@ -1,13 +1,19 @@
+import { useState } from 'react';
 import Post from '../partials/Post';
 
 
 
-const Feed = ({posts}) => {
+const Feed = ({searchValue, posts}) => {
+
+    const filteredPosts = posts.filter((post) => {
+        return post.caption.toLowerCase().includes(searchValue.toLowerCase());
+    });
+
     return (
         <section className="container-fluid">
             <div className="row justify-around">
                 <div className="col d-flex p5" style={{flexWrap: 'wrap'}}>
-                    {posts.map((post, index) => {
+                    {filteredPosts.map((post, index) => {
                         return (
                             <Post
                                 key={index}
